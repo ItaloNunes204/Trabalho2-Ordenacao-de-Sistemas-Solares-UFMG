@@ -28,33 +28,33 @@ struct sistemas {
     struct planetas* planeta;
 };
 
-//coleta as informaçoes da lua
+//coleta as informaÃ§oes da lua
 void Lelua(struct luas* lua){
-    //coleta as informaçoes da lua
+    //coleta as informaÃ§oes da lua
     scanf("\t\t %s %d", lua->nome, &lua->raio_lua);
 }
 
-//coleta as informaçoes do planeta
+//coleta as informaÃ§oes do planeta
 void LePlaneta(struct planetas* planeta) {
 
     int n_luas=0;
-    //coleta as informaçoes do planeta
+    //coleta as informaÃ§oes do planeta
     scanf("\t %s %d %d", planeta->nome, &planeta->raio_planeta,&planeta->n_luas);
 
     //cria uma lista com as luas de um planeta
     planeta->lua = (struct luas*)malloc(planeta->n_luas * sizeof(struct luas));
 
-    //chama a coleta de informaçoes para cada lua
+    //chama a coleta de informaÃ§oes para cada lua
     for (int i = 0; i < planeta->n_luas; i++) {
         Lelua(&planeta->lua[i]);
     }
 
 }
 
-//coleta informaçoes do sistema
+//coleta informaÃ§oes do sistema
 void LeSistema(struct sistemas* sistema) {
 
-    //coleta informaçoes do sistema
+    //coleta informaÃ§oes do sistema
     int n_planetas;
     scanf("%d %s %d %d", &sistema->tempo, sistema->nome, &sistema->raio_sol, &n_planetas);
 
@@ -63,7 +63,7 @@ void LeSistema(struct sistemas* sistema) {
     //cria uma lista de planetas
     sistema->planeta = (struct planetas*)malloc(n_planetas * sizeof(struct planetas));
 
-    //chama a coleta de informaçoes de cada planeta
+    //chama a coleta de informaÃ§oes de cada planeta
     for (int i = 0; i < sistema->n_planetas; i++) {
         LePlaneta(&sistema->planeta[i]);
     }
@@ -112,7 +112,7 @@ void maior_planeta(struct sistemas* sistema){
 
     }
 
-    //adiciona ao sistema a informaçao
+    //adiciona ao sistema a informaÃ§ao
     sistema->raio_maior_planeta = maiorPlaneta;
 
 }
@@ -136,12 +136,12 @@ void maior_lua_numero_lua(struct sistemas* sistema) {
 
     }
 
-    //adiciona ao sistema as informaçoes
+    //adiciona ao sistema as informaÃ§oes
     sistema->n_luas = n_lua;
     sistema->raio_maior_lua = maiorLua;
 }
 
-//com a entrada de 2 sistemas e usado as informaçoes de preferencia para determinar qual e mais importante
+//com a entrada de 2 sistemas e usado as informaÃ§oes de preferencia para determinar qual e mais importante
 // retorna 1 para o primeiro sistema e 2 para o segundo sistema
 int melhor_de_2sistemas(struct sistemas* sistema1,struct sistemas* sistema2){
     if(sistema1->raio_sol != sistema2->raio_sol){
@@ -279,11 +279,11 @@ int main(){
     //cria uma lista de sistemas
     struct sistemas* sistema = (struct sistemas*)malloc(quantidade * sizeof(struct sistemas));
 
-    //coleta as informaçoes de cada sistema
+    //coleta as informaÃ§oes de cada sistema
     for(int i=0;i<quantidade;i++){
         LeSistema(&sistema[i]);
     }
-    //coleta as informaçoes extras (maior planeta,maior lua,numero de luas)
+    //coleta as informaÃ§oes extras (maior planeta,maior lua,numero de luas)
     for(int i=0;i<quantidade;i++){
         maior_planeta(&sistema[i]);
         maior_lua_numero_lua(&sistema[i]);
